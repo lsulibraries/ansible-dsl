@@ -5,7 +5,7 @@
 	path = provisioning/roles/geerlingguy.apache
 	url = https://github.com/geerlingguy/ansible-role-apache
 [submodule "provisioning/roles/ansible-role-drupal"]
-	path = provisioning/roles/ansible-role-drupal
+	path = provisioning/roles/geerlingguy.drupal/
 	url = https://github.com/geerlingguy/ansible-role-drupal
 [submodule "provisioning/roles/ansible-role-git"]
 	path = provisioning/roles/ansible-role-git
@@ -17,7 +17,7 @@
 	path = provisioning/roles/geerlingguy.composer
 	url = https://github.com/geerlingguy/ansible-role-composer
 [submodule "provisioning/roles/ansible-role-drush"]
-	path = provisioning/roles/ansible-role-drush
+	path = provisioning/roles/geerlingguy.drush
 	url = https://github.com/geerlingguy/ansible-role-drush
 [submodule "provisioning/roles/ansible-role-php"]
 	path = provisioning/roles/ansible-role-php
@@ -25,3 +25,6 @@
 [submodule "provisioning/roles/common"]
 	path = provisioning/roles/common
 	url = https://github.com/lsulibraries/ansible-role-common.git
+[submodule "provisioning/roles/geerlingguy.drupal"]
+	path = provisioning/roles/geerlingguy.drupal
+	url = https://github.com/geerlingguy/ansible-role-drupal
