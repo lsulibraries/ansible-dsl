@@ -1,0 +1,27 @@
+[submodule "provisioning/JJG-Ansible-Windows"]
+	path = provisioning/JJG-Ansible-Windows
+	url = https://github.com/geerlingguy/JJG-Ansible-Windows.git
+[submodule "provisioning/roles/ansible-role-apache"]
+	path = provisioning/roles/ansible-role-apache
+	url = https://github.com/geerlingguy/ansible-role-apache
+[submodule "provisioning/roles/ansible-role-drupal"]
+	path = provisioning/roles/ansible-role-drupal
+	url = https://github.com/geerlingguy/ansible-role-drupal
+[submodule "provisioning/roles/ansible-role-git"]
+	path = provisioning/roles/ansible-role-git
+	url = https://github.com/geerlingguy/ansible-role-git
+[submodule "provisioning/roles/ansible-role-php-mysql"]
+	path = provisioning/roles/ansible-role-php-mysql
+	url = https://github.com/geerlingguy/ansible-role-php-mysql
+[submodule "provisioning/roles/ansible-role-composer"]
+	path = provisioning/roles/ansible-role-composer
+	url = https://github.com/geerlingguy/ansible-role-composer
+[submodule "provisioning/roles/ansible-role-drush"]
+	path = provisioning/roles/ansible-role-drush
+	url = https://github.com/geerlingguy/ansible-role-drush
+[submodule "provisioning/roles/ansible-role-php"]
+	path = provisioning/roles/ansible-role-php
+	url = https://github.com/geerlingguy/ansible-role-php
+[submodule "provisioning/roles/common"]
+	path = provisioning/roles/common
+	url = https://github.com/lsulibraries/ansible-role-common.git
