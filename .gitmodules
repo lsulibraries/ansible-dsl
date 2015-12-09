@@ -20,7 +20,7 @@
 	path = provisioning/roles/geerlingguy.drush
 	url = https://github.com/geerlingguy/ansible-role-drush
 [submodule "provisioning/roles/ansible-role-php"]
-	path = provisioning/roles/ansible-role-php
+	path = provisioning/roles/geerlingguy.php
 	url = https://github.com/geerlingguy/ansible-role-php
 [submodule "provisioning/roles/common"]
 	path = provisioning/roles/common
