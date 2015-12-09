@@ -2,7 +2,7 @@
 	path = provisioning/JJG-Ansible-Windows
 	url = https://github.com/geerlingguy/JJG-Ansible-Windows.git
 [submodule "provisioning/roles/ansible-role-apache"]
-	path = provisioning/roles/ansible-role-apache
+	path = provisioning/roles/geerlingguy.apache
 	url = https://github.com/geerlingguy/ansible-role-apache
 [submodule "provisioning/roles/ansible-role-drupal"]
 	path = provisioning/roles/ansible-role-drupal
@@ -14,7 +14,7 @@
 	path = provisioning/roles/ansible-role-php-mysql
 	url = https://github.com/geerlingguy/ansible-role-php-mysql
 [submodule "provisioning/roles/ansible-role-composer"]
-	path = provisioning/roles/ansible-role-composer
+	path = provisioning/roles/geerlingguy.composer
 	url = https://github.com/geerlingguy/ansible-role-composer
 [submodule "provisioning/roles/ansible-role-drush"]
 	path = provisioning/roles/ansible-role-drush
