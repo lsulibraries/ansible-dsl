@@ -1,0 +1,14 @@
+---
+- name: get modules
+  command: "drush dl -y {{ item }}"
+  args:
+    chdir: "{{ drupal_core_path }}"
+  with_items:
+    - features
+
+- name: enable modules
+  command: "drush en -y {{ item }}"
+  args:
+    chdir: "{{ drupal_core_path }}"
+  with_items:
+    - features
