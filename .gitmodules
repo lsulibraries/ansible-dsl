@@ -28,3 +28,6 @@
 [submodule "provisioning/roles/geerlingguy.drupal"]
 	path = provisioning/roles/geerlingguy.drupal
 	url = https://github.com/geerlingguy/ansible-role-drupal
+[submodule "provisioning/roles/geerlingguy.mysql"]
+	path = provisioning/roles/geerlingguy.mysql
+	url = https://github.com/geerlingguy/ansible-role-mysql

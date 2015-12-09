@@ -2,8 +2,6 @@
 - hosts: all
   roles:
     - common
-    - ansible-role-drupal
+    - geerlingguy.drupal
     - modules
-    - themes
-    - features
   become: true
