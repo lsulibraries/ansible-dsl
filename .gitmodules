@@ -8,7 +8,7 @@
 	path = provisioning/roles/geerlingguy.drupal/
 	url = https://github.com/geerlingguy/ansible-role-drupal
 [submodule "provisioning/roles/ansible-role-git"]
-	path = provisioning/roles/ansible-role-git
+	path = provisioning/roles/geerlingguy.git
 	url = https://github.com/geerlingguy/ansible-role-git
 [submodule "provisioning/roles/ansible-role-php-mysql"]
 	path = provisioning/roles/ansible-role-php-mysql
