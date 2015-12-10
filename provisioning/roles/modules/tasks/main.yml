@@ -5,6 +5,8 @@
     chdir: "{{ drupal_core_path }}"
   with_items:
     - features
+    - cas
+    - strongarm
 
 - name: enable modules
   command: "drush en -y {{ item }}"
@@ -12,3 +14,5 @@
     chdir: "{{ drupal_core_path }}"
   with_items:
     - features
+    - cas
+    - strongarm
