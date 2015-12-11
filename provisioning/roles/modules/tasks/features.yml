@@ -1,0 +1,14 @@
+---
+- name: Pull in features
+  git:
+    repo: https://github.com/lsulibraries/features-hist3119-s16.git
+    dest: "{{ drupal_core_path }}/sites/all/modules/features-hist3119-s16"
+
+- name: Enable features
+  command: "drush -y en {{ item }}"
+  args:
+    chdir: "{{ drupal_core_path }}"
+  with_items:
+    - instructor_role
+    - student_role
+    

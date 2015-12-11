@@ -7,6 +7,8 @@
   with_items: "{{ modules }}"
 
 - include: cas.yml
+- include: tinymce.yml
+- include: features.yml
 
 - name: enable modules
   command: "drush en -y {{ item }}"
