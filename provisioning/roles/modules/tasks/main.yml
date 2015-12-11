@@ -6,6 +6,8 @@
     chdir: "{{ drupal_core_path }}"
   with_items: "{{ modules }}"
 
+- include: cas.yml
+
 - name: enable modules
   command: "drush en -y {{ item }}"
   args:
