@@ -1,7 +1,20 @@
 ---
 modules:
   - features
+  - libraries
   - cas
   - strongarm
   - views
   - zen
+  - feeds
+  - feeds_tamper
+  - references
+  - entityreference
+  - media
+  - file_entity
+  - wysiwyg_mediaembed
+  - pathauto
+  - special_menu_items
+  - responsive_menus
+  - superfish
+  - image_resize_filter
