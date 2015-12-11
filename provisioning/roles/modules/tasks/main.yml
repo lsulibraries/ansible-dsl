@@ -7,6 +7,8 @@
     - features
     - cas
     - strongarm
+    - views
+    - zen
 
 - name: enable modules
   command: "drush en -y {{ item }}"
@@ -16,3 +18,5 @@
     - features
     - cas
     - strongarm
+    - views
+    - zen
