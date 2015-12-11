@@ -1,0 +1,7 @@
+---
+modules:
+  - features
+  - cas
+  - strongarm
+  - views
+  - zen
