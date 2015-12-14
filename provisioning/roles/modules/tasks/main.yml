@@ -15,3 +15,9 @@
   args:
     chdir: "{{ drupal_core_path }}"
   with_items: "{{ modules }}"
+
+- name: Set permissions so that we can 'generate' features on the host.
+  file:
+    path: "{{ drupal_core_path }}/sites/all/modules/features-hist3119-s16"
+    owner: www-data
+    recurse: yes
