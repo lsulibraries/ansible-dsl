@@ -18,3 +18,9 @@ modules:
   - responsive_menus
   - superfish
   - image_resize_filter
+  - professional_theme
+  - skeletontheme
+  - multipurpose
+
+drupal_vhosts_directives: ""
+drupal_domain: ""
