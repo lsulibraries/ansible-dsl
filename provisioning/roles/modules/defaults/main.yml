@@ -21,6 +21,7 @@ modules:
   - professional_theme
   - skeletontheme
   - multipurpose
+  - impact_theme
 
 drupal_vhosts_directives: ""
 drupal_domain: ""
