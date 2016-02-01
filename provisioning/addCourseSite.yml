@@ -1,0 +1,47 @@
+---
+- hosts: addCourse
+  roles:
+    - common
+    - geerlingguy.drupal
+    - modules
+    - course
+    - backup-updates
+  become: true
+  vars:
+    drupal_core_version: "7.x"
+
+#    drupal_site_name: Drupal Site
+#    drupal_site_short_name: drupal
+
+    # path
+    drupal_core_path: "/var/www/html/{{ drupal_site_short_name }}"
+    ard_destination: "/backup/{{ drupal_site_short_name }}"
+
+    # mysql
+    drupal_mysql_user: "{{ drupal_site_short_name }}_user"
+    drupal_mysql_password: password
+    drupal_mysql_database: "{{ drupal_site_short_name }}"
+    drupal_domain: "{{ drupal_site_short_name }}"
+
+  vars_prompt:
+    - name: "drupal_site_short_name"
+      prompt: 'short name for the course (alpha-numeric, no whitespace)'
+      private: no
+
+    - name: "uri_subfolder"
+      prompt: 'Subfolder for this drupal site (http://example.com/subfolder/drupal' # if using a subfolder, it must begin with a slash
+      private: no
+      default: '/courses'
+
+    - name: "drupal_site_name"
+      prompt: 'Name for this drupal site'
+      private: no
+      
+    - name: "drupal_admin_password"
+      prompt: "Enter password for admin user"
+
+  tasks:
+  - name: Nasty hack to remove drupal vhost
+    file:
+      path: "/etc/apache2/sites-enabled/{{ drupal_domain }}.conf"
+      state: absent
