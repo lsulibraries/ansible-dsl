@@ -81,7 +81,10 @@ Vagrant.configure(2) do |config|
   else
     # Provisioning configuration for Ansible (for Mac/Linux hosts).
     config.vm.provision "ansible" do |ansible|
-      ansible.playbook = "provisioning/playbook.yml"
+      ansible.playbook = "provisioning/coursesRoot.yml"
+      ansible.inventory_path = "provisioning/coursesRoot.inv"
+      ansible.verbose = 'vvv'
+      ansible.limit = 'coursesRoot'
       ansible.sudo = true
     end
   end

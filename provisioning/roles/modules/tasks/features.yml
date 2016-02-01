@@ -2,7 +2,7 @@
 - name: Pull in features
   git:
     repo: https://github.com/lsulibraries/features-hist3119-s16.git
-    dest: "{{ drupal_core_path }}/sites/all/modules/features-hist3119-s16"
+    dest: "{{ drupal_core_path }}/sites/all/modules/features-{{ drupal_site_short_name  }}"
 
 - name: Enable features
   command: "drush -y en {{ item }}"

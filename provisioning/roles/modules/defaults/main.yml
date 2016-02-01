@@ -2,7 +2,6 @@
 modules:
   - features
   - libraries
-  - cas
   - strongarm
   - views
   - zen
