@@ -1,0 +1,11 @@
+---
+- name: Proxy preserve host
+  lineinfile:
+    line: ProxyPreserveHost On
+    dest: "/etc/apache2/sites-enabled/{{ drupal_domain }}.conf"
+
+- name: Add proxy directives for main site
+  lineinfile:
+    line: "{{ drupal_vhost_directives }}"
+    insertbefore: r"^.*</VirtualHost>"
+    dest: "/etc/apache2/sites-enabled/{{ drupal_domain }}.conf"
