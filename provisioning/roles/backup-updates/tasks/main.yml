@@ -1,0 +1,13 @@
+---
+
+- file:
+    path: "{{ ard_destination }}"
+    state: directory
+    owner: root
+    mode: 0600
+
+- template: 
+    src: drupal_cron.j2
+    dest: "/etc/cron.d/{{ drupal_site_short_name }}"
+    owner: root
+    mode: 0744
