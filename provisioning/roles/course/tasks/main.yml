@@ -1,0 +1,9 @@
+---
+- name: Set up base url in settings.php
+  lineinfile:
+    line: "{{ course_base_url }} \n{{ course_reverse_proxy }}\n {{ course_reverse_proxy_address }}\n"
+    dest: "{{ drupal_core_path }}/sites/default/settings.php"
+    insertafter: "# $conf['reverse_proxy_header'] = 'HTTP_X_CLUSTER_CLIENT_IP';"
+
+
+

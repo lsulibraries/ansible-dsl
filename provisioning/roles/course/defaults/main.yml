@@ -1,0 +1,16 @@
+uri_subfolder: '' # must be preceded by a slash /
+
+course_base_url: |
+  # Workaround for proxied drupal sites found here: https://www.drupal.org/node/244593
+  ### https://www.drupal.org/node/244593#comment-5363986 ####
+
+  if (isset($_SERVER['HTTP_X_FORWARDED_HOST'])) {
+  $subfolder = '{{ uri_subfolder }}/{{ drupal_site_short_name }}';
+    $base_url = 'http://dsl.lsu.edu'.$subfolder;
+    $_SERVER['REQUEST_URI'] = $subfolder. '/' . $_SERVER['REQUEST_URI'];
+    #  $cookie_domain = 'example.com';
+  }
+
+course_reverse_proxy: "$conf['reverse_proxy'] = TRUE;"
+# todo - put this into a variable...
+course_reverse_proxy_address: "$conf['reverse_proxy_addresses'] = array('{{ course_proxy_ip  }}');"
