@@ -1,0 +1,21 @@
+---
+
+# default vars - should be overridden in course-specific group_vars/ file
+course_title: example_course # used in proxy definitions
+course_ip: 127.0.0.1 # private ip, in the case of aws vpc
+
+drupal_domain: dsl.lsu.edu
+drupal_site_name: "{{ course_title  }}"
+drupal_admin_password: admin
+drupal_core_path: "/var/www/{{ course_title  }}"
+
+course_base_url: |
+  # Workaround for proxied drupal sites found here: https://www.drupal.org/node/244593
+  ### https://www.drupal.org/node/244593#comment-5363986 ####
+
+  if (isset($_SERVER['HTTP_X_FORWARDED_HOST'])) {
+    $subfolder = '/courses/{{ course_title }}';
+    $base_url = 'http://dsl.lsu.edu'.$subfolder;
+    $_SERVER['REQUEST_URI'] = $subfolder. '/' . $_SERVER['REQUEST_URI'];
+    #  $cookie_domain = 'example.com';
+  }
