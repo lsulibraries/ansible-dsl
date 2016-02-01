@@ -11,5 +11,3 @@
   with_items:
     - instructor_role
     - student_role
-    - lsu_cas
-    
