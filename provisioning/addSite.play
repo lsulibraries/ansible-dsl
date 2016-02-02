@@ -10,7 +10,7 @@
     drupal_core_version: "7.x"
 
     # path
-    drupal_core_path: "/var/www/html/{{ drupal_site_short_name }}"
+    drupal_core_path: "/var/www/html/{{ site_target }}"
     ard_destination: "/backup/{{ drupal_site_short_name }}"
 
     # mysql
@@ -22,7 +22,7 @@
   vars_prompt:
 
     - name: "site_target"
-      prompt: 'location under the webroot to install the site; ex: /mysite or /courses/mycourse1'
+      prompt: 'location under the webroot (/) to install the site; ex: mysite or courses/mycourse1'
       private: no
 
     - name: "drupal_site_name"
@@ -32,7 +32,7 @@
     - name: "drupal_site_short_name"
       prompt: 'short name for the course (alpha-numeric, no whitespace)'
       private: no
-      
+
     - name: "drupal_admin_password"
       prompt: "Enter password for admin user"
 
