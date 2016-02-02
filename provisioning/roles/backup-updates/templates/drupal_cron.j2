@@ -1,7 +1,7 @@
 SHELL=/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
-{{ ansible_date_time.minute }} 05 * * 7 root drush -r {{ drupal_core_path }} ard default --overwrite --destination=/backup/{{ drupal_site_short_name }}/weekly.tar
-{{ ansible_date_time.minute }} 23 * * * root drush -r {{ drupal_core_path }} ard default --overwrite --destination=/backup/{{ drupal_site_short_name }}/daily.tar
+{{ ansible_date_time.minute }} 05 * * 7 root drush -r {{ drupal_core_path }} ard default --overwrite --destination={{ ard_destination }}/weekly.tar
+{{ ansible_date_time.minute }} 23 * * * root drush -r {{ drupal_core_path }} ard default --overwrite --destination={{ ard_destination }}/daily.tar
 {{ ansible_date_time.minute }} 00 * * * root drush up --security-only -y
 */25 * * * * root drush --root={{ drupal_core_path }} cron

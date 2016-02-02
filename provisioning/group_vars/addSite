@@ -1,4 +1,4 @@
 apache_create_vhosts: false
 apache_vhosts_filename: "vhosts.conf"
 apache_remove_default_vhost: false
-course_proxy_ip: 172.31.30.162
+

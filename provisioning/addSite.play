@@ -1,17 +1,13 @@
 ---
-- hosts: addCourse
+- hosts: dsl_www
   roles:
     - common
     - geerlingguy.drupal
     - modules
-    - course
     - backup-updates
   become: true
   vars:
     drupal_core_version: "7.x"
-
-#    drupal_site_name: Drupal Site
-#    drupal_site_short_name: drupal
 
     # path
     drupal_core_path: "/var/www/html/{{ drupal_site_short_name }}"
@@ -24,17 +20,17 @@
     drupal_domain: "{{ drupal_site_short_name }}"
 
   vars_prompt:
-    - name: "drupal_site_short_name"
-      prompt: 'short name for the course (alpha-numeric, no whitespace)'
-      private: no
 
-    - name: "uri_subfolder"
-      prompt: 'Subfolder for this drupal site (http://example.com/subfolder/drupal' # if using a subfolder, it must begin with a slash
+    - name: "site_target"
+      prompt: 'location under the webroot to install the site; ex: /mysite or /courses/mycourse1'
       private: no
-      default: '/courses'
 
     - name: "drupal_site_name"
       prompt: 'Name for this drupal site'
+      private: no
+
+    - name: "drupal_site_short_name"
+      prompt: 'short name for the course (alpha-numeric, no whitespace)'
       private: no
       
     - name: "drupal_admin_password"
