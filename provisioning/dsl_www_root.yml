@@ -1,5 +1,5 @@
 ---
-- hosts: coursesRoot
+- hosts: dsl_www
   roles:
     - common
     - geerlingguy.git

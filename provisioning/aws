@@ -1,12 +1,5 @@
-[proxy]
-52.34.136.221
+[dsl_www]
+52.33.132.48
 
 [hist3119s16]
 52.24.32.160
-
-[testcourse]
-52.89.13.241
-
-[courses:children]
-hist3119s16
-testcourse
