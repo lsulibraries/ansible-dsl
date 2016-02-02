@@ -7,6 +7,11 @@
     - backup-updates
   become: true
   vars:
+
+    apache_create_vhosts: false
+    apache_vhosts_filename: "vhosts.conf"
+    apache_remove_default_vhost: false
+
     drupal_core_version: "7.x"
 
     # path

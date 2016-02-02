@@ -1,4 +1,0 @@
-apache_create_vhosts: false
-apache_vhosts_filename: "vhosts.conf"
-apache_remove_default_vhost: false
-
