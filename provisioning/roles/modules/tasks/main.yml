@@ -6,7 +6,6 @@
     chdir: "{{ drupal_core_path }}"
   with_items: "{{ modules }}"
 
-#- include: tinymce.yml
 - include: features.yml
 
 - name: enable modules

@@ -1,4 +1,5 @@
 drupal_core_version: "7.x"
+drupal_core_path: /var/www/drupal
 apache_remove_default_vhost: true
 drupal_vhost_directives: ""
 
