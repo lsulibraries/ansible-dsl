@@ -74,21 +74,21 @@
   tasks:
     # todo: install postfix as internet site...
     - name: Move cert into place
-      file:
+      copy:
         src: "{{ local_cert_file_dir }}/{{ cert_file_name }}"
         dest: "{{ remote_cert_file_dir }}/{{ cert_file_name }}"
         mode: 0600
         owner: www-data
 
     - name: Move key into place
-      file:
+      copy:
         src: "{{ local_key_file_dir }}/{{ key_file_name }}"
         dest: "{{ remote_key_file_dir }}/{{ key_file_name }}"
         mode: 0600
         owner: www-data
 
     - name: Move key into place
-      file:
+      copy:
         src: "{{ local_cert_chain_file_dir }}/{{ cert_chain_file_name }}"
         dest: "{{ remote_cert_chain_file_dir }}/{{ cert_chain_file_name }}"
         mode: 0600
