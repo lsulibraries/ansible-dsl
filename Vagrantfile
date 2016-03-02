@@ -22,7 +22,7 @@ Vagrant.configure(2) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 80, host: 8000
+  config.vm.network "forwarded_port", guest: 80, host: 8888
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -76,15 +76,15 @@ Vagrant.configure(2) do |config|
     # Provisioning configuration for shell script.
     config.vm.provision "shell" do |sh|
       sh.path = "provisioning/JJG-Ansible-Windows/windows.sh"
-      sh.args = "provisioning/playbook.yml"
+      sh.args = "provisioning/local.yml"
     end
   else
     # Provisioning configuration for Ansible (for Mac/Linux hosts).
     config.vm.provision "ansible" do |ansible|
-      ansible.playbook = "provisioning/coursesRoot.yml"
-      ansible.inventory_path = "provisioning/coursesRoot.inv"
-      ansible.verbose = 'vvv'
-      ansible.limit = 'coursesRoot'
+      ansible.playbook = "provisioning/local.yml"
+#      ansible.inventory_path = "provisioning/coursesRoot.inv"
+      ansible.verbose = 'vv'
+#      ansible.limit = 'coursesRoot'
       ansible.sudo = true
     end
   end

@@ -1,0 +1,57 @@
+---
+- hosts: all
+  become: true
+  vars: # see https://github.com/geerlingguy/ansible-role-apache for apache-specific vars definitions
+    apache_create_vhosts: true
+    apache_vhosts_filename: "vhosts.conf"
+    apache_remove_default_vhost: true
+    apache_mods_enabled:
+      - proxy.load
+      - proxy_http.load
+    apache_global_settings: |
+      DirectoryIndex index.php
+    domain: localhost
+
+    apache_vhosts:
+      - servername: "{{ domain }}"
+        documentroot: "/var/www/html"
+#    apache_create_vhosts: false
+#    apache_vhosts_filename: "vhosts.conf"
+#    apache_remove_default_vhost: false
+
+    drupal_core_version: "7.x"
+
+    site_target: ''
+    drupal_site_name: "dsl sub site"
+    drupal_site_short_name: dslsub
+    drupal_admin_password: admin
+
+    # path
+    drupal_core_path: "/var/www/html/{{ site_target }}"
+    ard_destination: "/backup/{{ drupal_site_short_name }}"
+
+    # mysql
+    drupal_mysql_user: "{{ drupal_site_short_name }}_user"
+    drupal_mysql_password: password
+    drupal_mysql_database: "{{ drupal_site_short_name }}"
+    drupal_domain: "{{ drupal_site_short_name }}"
+
+  roles:
+    - common
+    - geerlingguy.git
+    - geerlingguy.apache
+    - geerlingguy.mysql
+    - geerlingguy.php
+    - geerlingguy.php-mysql
+    - geerlingguy.composer
+    - geerlingguy.drush
+    - geerlingguy.drupal
+    - modules
+    - backup-updates
+    # todo: install postfix as internet site...
+
+#  tasks:
+#  - name: Nasty hack to remove drupal vhost
+#    file:
+#      path: "/etc/apache2/sites-enabled/{{ drupal_domain }}.conf"
+#      state: absent
