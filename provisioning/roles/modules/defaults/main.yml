@@ -22,5 +22,3 @@ modules:
   - multipurpose
   - impact_theme
 
-drupal_vhosts_directives: ""
-drupal_domain: ""

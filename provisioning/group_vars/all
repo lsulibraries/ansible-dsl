@@ -1,16 +1,10 @@
 drupal_core_version: "7.x"
-drupal_core_path: /var/www/drupal
-apache_remove_default_vhost: true
-drupal_vhost_directives: ""
 
 drupal_site_name: Drupal Site
 drupal_site_short_name: drupal
+#drupal_repo_url: https://github.com/drupal/drupal.git
 
 # path
-drupal_core_path: "/var/www/{{ drupal_site_short_name }}"
 ard_destination: "/backup/{{ drupal_site_short_name }}"
 
-# mysql
-drupal_mysql_user: "{{ drupal_site_short_name }}_user"
-drupal_mysql_password: password
-drupal_mysql_database: "{{ drupal_site_short_name }}"
+
