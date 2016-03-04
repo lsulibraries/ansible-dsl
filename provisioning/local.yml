@@ -3,6 +3,7 @@
   become: true
   vars:
     apache_remove_default_vhost: true
+    drupal_core_version: 7.x
   roles:
     - geerlingguy.drupal
     - modules
