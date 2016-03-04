@@ -1,10 +1,10 @@
 ---
 - hosts: all
   become: true
+  vars:
+    apache_remove_default_vhost: true
   roles:
     - geerlingguy.drupal
     - modules
-    - backup-updates
+#    - backup-updates
     # todo: install postfix as internet site...
-  vars:
-    drupal_core_path: /var/www/drupal
