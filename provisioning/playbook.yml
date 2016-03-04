@@ -1,8 +1,0 @@
----
-- hosts: all
-  roles:
-    - common
-    - geerlingguy.drupal
-    - modules
-    - backup-updates
-  become: true
