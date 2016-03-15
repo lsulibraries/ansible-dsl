@@ -1,0 +1,7 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - geaux-shax
+  vars:
+    drupal_core_path: /var/www/html/courses/geauxshax
