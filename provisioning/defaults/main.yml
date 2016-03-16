@@ -1,0 +1,4 @@
+---
+drupal_core_version: 7.x
+apache_doc_root: /var/www/html
+domain: test.testing

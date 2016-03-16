@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: true
+  vars:
+    apache_remove_default_vhost: false
+    drupal_core_version: 7.x
+  roles:
+    - common
+    - geerlingguy.git
+    - geerlingguy.apache
+    - geerlingguy.mysql
+    - geerlingguy.php
+    - geerlingguy.php-mysql
+    - geerlingguy.composer
+    - geerlingguy.drush
+  tasks:
+    - name: enable default site
+      command: a2ensite 000-default
+      notify: restart webserver
