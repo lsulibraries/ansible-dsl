@@ -1,13 +1,5 @@
 ---
 - hosts: all
   become: true
-  vars:
-    apache_remove_default_vhost: true
-    drupal_core_version: 7.x
-  roles:
-    - common
-    - geerlingguy.drupal
-    - modules
-    - geaux-shax
-#   - backup-updates
-    # todo: install postfix as internet site...
+- include: base.local.play
+- include: geauxshax.play

@@ -76,12 +76,12 @@ Vagrant.configure(2) do |config|
     # Provisioning configuration for shell script.
     config.vm.provision "shell" do |sh|
       sh.path = "provisioning/JJG-Ansible-Windows/windows.sh"
-      sh.args = "provisioning/local.yml"
+      sh.args = "provisioning/local.play"
     end
   else
     # Provisioning configuration for Ansible (for Mac/Linux hosts).
     config.vm.provision "ansible" do |ansible|
-      ansible.playbook = "provisioning/local.yml"
+      ansible.playbook = "provisioning/local.play"
 #      ansible.inventory_path = "provisioning/coursesRoot.inv"
       ansible.verbose = 'vv'
 #      ansible.limit = 'coursesRoot'
