@@ -5,6 +5,10 @@
   args:
     chdir: "{{ drupal_core_path }}"
   with_items: "{{ modules }}"
+- name: features dir
+  file:
+    path: "{{ drupal_core_path }}/sites/all/modules/local-features"
+    state: directory
 
 - include: features.yml
 
