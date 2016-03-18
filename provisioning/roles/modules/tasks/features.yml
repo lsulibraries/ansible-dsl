@@ -1,7 +1,7 @@
 ---
 - name: Pull in features
   git:
-    repo: https://github.com/lsulibraries/features-hist3119-s16.git
+    repo:https://github.com/lsulibraries/shax_roles
     dest: "{{ drupal_core_path }}/sites/all/modules/local-features"
 
 - name: Enable features
