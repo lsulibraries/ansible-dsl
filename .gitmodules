@@ -31,9 +31,6 @@
 [submodule "provisioning/roles/geerlingguy.mysql"]
 	path = provisioning/roles/geerlingguy.mysql
 	url = https://github.com/geerlingguy/ansible-role-mysql
-[submodule "provisioning/roles/geaux-shax"]
-	path = provisioning/roles/geaux-shax
-	url = https://github.com/lsulibraries/geaux-shax
 [submodule "provisioning/roles/omeka-ansible"]
 	path = provisioning/roles/omeka-ansible
 	url = https://github.com/davidmcclure/omeka-ansible.git
