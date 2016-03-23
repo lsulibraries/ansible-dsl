@@ -4,6 +4,6 @@
   roles:
     - geerlingguy.drupal
     - modules
-    - geaux-shax
+    - ansible-role-geaux-shax
   vars:
     drupal_core_path: /var/www/html/courses/geauxshax

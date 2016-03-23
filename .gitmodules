@@ -34,3 +34,6 @@
 [submodule "provisioning/roles/omeka-ansible"]
 	path = provisioning/roles/omeka-ansible
 	url = https://github.com/davidmcclure/omeka-ansible.git
+[submodule "provisioning/roles/ansible-role-geaux-shax"]
+	path = provisioning/roles/ansible-role-geaux-shax
+	url = https://github.com/lsulibraries/ansible-role-geaux-shax
