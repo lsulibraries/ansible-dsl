@@ -4,6 +4,7 @@
   vars:
     apache_remove_default_vhost: false
     drupal_core_version: 7.x
+    drush_version: 8.x
   roles:
     - common
     - geerlingguy.git
