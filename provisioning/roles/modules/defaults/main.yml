@@ -1,5 +1,6 @@
 ---
 modules:
+  - better_exposed_filters
   - features
   - libraries
   - strongarm
@@ -22,3 +23,32 @@ modules:
   - multipurpose
   - impact_theme
   - diff
+  - ckeditor
+  - feature_extra
+  
+modules_to_enable:
+  - better_exposed_filters
+  - features
+  - libraries
+  - strongarm
+  - views
+  - zen
+  - feeds
+  - feeds_tamper
+  - references
+  - entityreference
+  - media
+  - file_entity
+  - wysiwyg_mediaembed
+  - pathauto
+  - special_menu_items
+  - responsive_menus
+  - superfish
+  - image_resize_filter
+  - professional_theme
+  - skeletontheme
+  - multipurpose
+  - impact_theme
+  - diff
+  - ckeditor
+  - fe_block
