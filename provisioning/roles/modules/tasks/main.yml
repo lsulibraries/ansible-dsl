@@ -10,4 +10,4 @@
   command: "drush en -y {{ item }}"
   args:
     chdir: "{{ drupal_core_path }}"
-  with_items: "{{ modules }}"
+  with_items: "{{ modules_to_enable }}"
