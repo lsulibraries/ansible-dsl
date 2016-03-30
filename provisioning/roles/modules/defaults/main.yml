@@ -1,4 +1,5 @@
 ---
+#these modules are intended to be part of drupal for all our sites within dsl.
 modules:
   - better_exposed_filters
   - features
