@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: true 
+  roles:
+    - geerlingguy.mysql
+  vars: 
+    wp-version: 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+  tasks:
+    - name: -get out the dumbells it's time to do some CURLing
+      command: curl -O https://wordpress.org/latest.tar.gz
+      args: 
+        chdir: /var/www
+    - name: take it off! $$$$$
+      command: unzip -c latest.tar.gz |  tar xopf -
+      args: 
+      chdir: /var/www
+      
