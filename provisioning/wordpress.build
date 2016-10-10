@@ -3,15 +3,22 @@
   become: true 
   roles:
     - geerlingguy.mysql
-  vars: 
-    wp-version: 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+  #vars: 
+   # wp-version: 1a063a9b-81f0-0310-95a4-ce76da25c4cd
   tasks:
-    - name: -get out the dumbells it's time to do some CURLing
+    - name: get out the dumbells it's time to do some CURLing "¡__≠__
       command: curl -O https://wordpress.org/latest.tar.gz
       args: 
         chdir: /var/www
-    - name: take it off! $$$$$
-      command: unzip -c latest.tar.gz |  tar xopf -
+    - name: unzip your curls... 
+      command: tar -xzvf latest.tar.gz
       args: 
       chdir: /var/www
-      
+
+    - name: rename some files
+      command: mv wp-config-sample.php wp-config.php
+
+    - lineinfile: dest=/wp-config.php     
+    
+    - name: get some mysql chops already
+    - mysql_db: name=wordpress state=present
