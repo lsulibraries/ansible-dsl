@@ -22,3 +22,9 @@
     
     - name: get some mysql chops already
     - mysql_db: name=wordpress state=present
+    - mysql_user: name='wordpress' password='wordpress' priv=*.* state=present
+    
+ 
+ 
+ 
+  

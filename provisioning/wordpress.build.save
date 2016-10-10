@@ -1,0 +1,23 @@
+”---
+- hosts: all
+  become: true 
+  roles:
+    - geerlingguy.mysql
+  vars: 
+    wp-version: 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+  tasks:
+    - name: mkdir where u want it
+      command: mkdir /var/www/wp
+    - name: get out the dumbells it's time to do some CURLing "¡__≠__
+      command: curl -O https://wordpress.org/latest.tar.gz
+      args: 
+        chdir: /var/www/wp
+    - name: unzip your curls... 
+      command: unzip -c latest.tar.gz |  tar xopf -
+      args: 
+      chdir: /var/www/wp
+    - name: rename some files
+      command: mv wp-config-sample.php wp-config.php
+   # - name: edit the file...(howtoo) (SED)
+   #FIGURE OUT WHERE IT WILL BE ON THE WEBSITE (IE dsl.edu/blog)
+   #access wp via a browser????
