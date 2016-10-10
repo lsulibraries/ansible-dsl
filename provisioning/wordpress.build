@@ -6,12 +6,20 @@
   #vars: 
    # wp-version: 1a063a9b-81f0-0310-95a4-ce76da25c4cd
   tasks:
-    - get_url:
-      url: https://wordpress.org/latest.tar.gz
-      dest: /var/www/latest.tar.gz
+
+    - name:
+      get_url: 
+        url: https://wordpress.org/latest.tar.gz
+        dest: /var/www/latest.tar.gz
+        force_basic_auth: yes
+    
+    #- name: tar command
+    #  command: tar -xzvf latest.tar.gz
+
 
     - name: unzip wordpress 
-      unarchive: src=/var/www/latest.tar.gz dest=/var/www 
+      unarchive: src=/var/www/latest.tar.gz dest=/var/www/
+
 
     - name: rename some files
       command: mv wp-config-sample.php wp-config.php
