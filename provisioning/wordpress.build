@@ -6,14 +6,12 @@
   #vars: 
    # wp-version: 1a063a9b-81f0-0310-95a4-ce76da25c4cd
   tasks:
-    - name: get out the dumbells it's time to do some CURLing "¡__≠__
-      command: curl -O https://wordpress.org/latest.tar.gz
-      args: 
-        chdir: /var/www
-    - name: unzip your curls... 
-      command: tar -xzvf latest.tar.gz
-      args: 
-      chdir: /var/www
+    - get_url:
+      url: https://wordpress.org/latest.tar.gz
+      dest: /var/www/latest.tar.gz
+
+    - name: unzip wordpress 
+      unarchive: src=/var/www/latest.tar.gz dest=/var/www 
 
     - name: rename some files
       command: mv wp-config-sample.php wp-config.php
