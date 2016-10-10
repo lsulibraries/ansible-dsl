@@ -18,10 +18,12 @@
     - name: rename some files
       command: mv wp-config-sample.php wp-config.php
 
-    - lineinfile: dest=/wp-config.php     
+    - lineinfile: dest=/wp-config.php regexp="^define('DB_NAME', 'database_name_here')" line:="define('DB_NAME', 'wordpress_db');"     
+    - lineinfile: dest=/wp-config.php regexp="^define('DB_USER', 'username_here')" line:="define('DB_USER', 'wordpress');"     
+    - lineinfile: dest=/wp-config.php regexp="^define('DB_PASSWORD', 'password_here')" line:="define('DB_PASSWORD', 'wordpress');"     
     
     - name: get some mysql chops already
-    - mysql_db: name=wordpress state=present
+    - mysql_db: name=wordpress_db state=present
     - mysql_user: name='wordpress' password='wordpress' priv=*.* state=present
     
  
