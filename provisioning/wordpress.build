@@ -17,16 +17,22 @@
 # early alternate dl latest wp
    - name: curl url
      command: curl -O https://wordpress.org/latest.tar.gz
+     args:
+       chdir: /var/www
     
 #ealy alternate non ansible extract zip
    - name: tar command
      command: tar -xzvf latest.tar.gz
+     args:
+       chdir: /var/www
 
     # unzip wordpress 
 #   - unarchive: src=/var/www/latest.tar.gz dest=/var/www/
 
    - name: rename some files
      command: mv wp-config-sample.php wp-config.php
+     args: 
+       chdir: /var/www/wordpress
 
    - lineinfile: dest=/wp-config.php regexp="^define('DB_NAME', 'database_name_here')" line="define('DB_NAME', 'wordpress_db');"
    - lineinfile: dest=/wp-config.php regexp="^define('DB_USER', 'username_here')" line="define('DB_USER', 'wordpress');"
