@@ -39,7 +39,7 @@
    - lineinfile: dest=/var/www/wordpress/wp-config.php regexp="^define('DB_PASSWORD', 'password_here')" line="define('DB_PASSWORD', 'wordpress');"
     
    - mysql_db: name=wordpress_db state=present login_user=root login_password=root
-   - mysql_user: name='wordpress' password='wordpress' priv=*.* state=present
+   - mysql_user: name='wordpress' password='wordpress' priv=*.*:ALL state=present
 
    - name: visit site?
      command: curl http://example.com/wp-admin/install.php
