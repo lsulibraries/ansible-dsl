@@ -6,43 +6,40 @@
 #    - geerlingguy.mysql
   vars: 
     wp_path_end: projects/digitalpedagogyfellows
-    wp_path:{{apache_doc_root}}/{{wp_path_end}}
+    wp_path: "/var/www/html/{{wp_path_end}}"
+    wp_path_absolute: "{{wp_path}}/wordpress"
   tasks:
-
 #    - name:
 #      get_url: 
 #        url: https://wordpress.org/latest.tar.gz
 #        dest: /var/www/latest.tar.gz
 #        force_basic_auth: yes
-
-   - file: path={{wordpress_path}} state=directory mode=0755
+   - file: path="{{wp_path}}" state=directory mode=0755
 
 # early alternate dl latest wp
    - name: curl url
      command: curl -O https://wordpress.org/latest.tar.gz
      args:
-       chdir:{{wp_path}}
+       chdir: "{{wp_path}}"
     
-#ealy alternate non ansible extract zip
+#non ansible extract zip
    - name: tar command
      command: tar -xzvf latest.tar.gz
      args:
-       chdir:{{wp_path}}
+       chdir: "{{wp_path}}"
 
     # unzip wordpress 
 #   - unarchive: src=/var/www/latest.tar.gz dest=/var/www/
 
    - name: rename some files
-     command: mv wp-config-sample.php wp-config.php
-     args: 
-       chdir:{{wp_path}}
+     command: "mv {{wp_path_absolute}}/wp-config-sample.php {{wp_path_absolute}}/wp-config.php"
 
-   - lineinfile: dest={{wp_path}}/wp-config.php regexp="^define('DB_NAME', 'database_name_here')" line="define('DB_NAME', 'wordpress_db');"
-   - lineinfile: dest={{wp_path}}/wp-config.php regexp="^define('DB_USER', 'username_here')" line="define('DB_USER', 'wordpress');"
-   - lineinfile: dest={{wp_path}}/wp-config.php regexp="^define('DB_PASSWORD', 'password_here')" line="define('DB_PASSWORD', 'wordpress');"
+   - lineinfile: dest="{{wp_path_absolute}}/wp-config.php" regexp="^define('DB_NAME', 'database_name_here')" line="define('DB_NAME', 'wordpress_db');"
+   - lineinfile: dest="{{wp_path_absolute}}/wp-config.php" regexp="^define('DB_USER', 'username_here')" line="define('DB_USER', 'wordpress');"
+   - lineinfile: dest="{{wp_path_absolute}}/wp-config.php" regexp="^define('DB_PASSWORD', 'password_here')" line="define('DB_PASSWORD', 'wordpress');"
     
    - mysql_db: name=wordpress_db state=present login_user=root login_password=root
    - mysql_user: name='wordpress' password='wordpress' priv=wordpress_db.*:ALL state=present
 
    - name: visit site?
-     command: curl http://dls.edu/wp-admin/{{wp_path_end}}
+     command: "curl http://localhost:8189/{{wp_path_end}}/wordpress/wp-admin/install.php"
