@@ -1,8 +1,9 @@
 ---
 - hosts: all
   become: true 
-  roles:
-    - geerlingguy.mysql
+# why I need role?
+#  roles:
+#    - geerlingguy.mysql
   #vars: 
    # wp-version: 1a063a9b-81f0-0310-95a4-ce76da25c4cd
   tasks:
@@ -33,8 +34,6 @@
     
     - mysql_db: name=wordpress_db state=present login_user=root login_password=root
     - mysql_user: name='wordpress' password='wordpress' priv=*.* state=present
-    
- 
- 
- 
-  
+
+    - name: visit site?
+    - command: curl http://example.com/wp-admin/install.php
