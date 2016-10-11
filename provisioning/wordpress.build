@@ -8,32 +8,32 @@
    # wp-version: 1a063a9b-81f0-0310-95a4-ce76da25c4cd
   tasks:
 
-    - name:
-      get_url: 
-        url: https://wordpress.org/latest.tar.gz
-        dest: /var/www/latest.tar.gz
-        force_basic_auth: yes
+#    - name:
+#      get_url: 
+#        url: https://wordpress.org/latest.tar.gz
+#        dest: /var/www/latest.tar.gz
+#        force_basic_auth: yes
 
 # early alternate dl latest wp
-#   - name: curl url
-#      command: curl -O https://wordpress.org/latest.tar.gz
+   - name: curl url
+     command: curl -O https://wordpress.org/latest.tar.gz
     
 #ealy alternate non ansible extract zip
-#    - name: tar command
-#      command: tar -xzvf latest.tar.gz
+   - name: tar command
+     command: tar -xzvf latest.tar.gz
 
-    - name: unzip wordpress 
-      unarchive: src=/var/www/latest.tar.gz dest=/var/www/
+    # unzip wordpress 
+#   - unarchive: src=/var/www/latest.tar.gz dest=/var/www/
 
-    - name: rename some files
-      command: mv wp-config-sample.php wp-config.php
+   - name: rename some files
+     command: mv wp-config-sample.php wp-config.php
 
-    - lineinfile: dest=/wp-config.php regexp="^define('DB_NAME', 'database_name_here')" line="define('DB_NAME', 'wordpress_db');"
-    - lineinfile: dest=/wp-config.php regexp="^define('DB_USER', 'username_here')" line="define('DB_USER', 'wordpress');"
-    - lineinfile: dest=/wp-config.php regexp="^define('DB_PASSWORD', 'password_here')" line="define('DB_PASSWORD', 'wordpress');"
+   - lineinfile: dest=/wp-config.php regexp="^define('DB_NAME', 'database_name_here')" line="define('DB_NAME', 'wordpress_db');"
+   - lineinfile: dest=/wp-config.php regexp="^define('DB_USER', 'username_here')" line="define('DB_USER', 'wordpress');"
+   - lineinfile: dest=/wp-config.php regexp="^define('DB_PASSWORD', 'password_here')" line="define('DB_PASSWORD', 'wordpress');"
     
-    - mysql_db: name=wordpress_db state=present login_user=root login_password=root
-    - mysql_user: name='wordpress' password='wordpress' priv=*.* state=present
+   - mysql_db: name=wordpress_db state=present login_user=root login_password=root
+   - mysql_user: name='wordpress' password='wordpress' priv=*.* state=present
 
-    - name: visit site?
-    - command: curl http://example.com/wp-admin/install.php
+   - name: visit site?
+     command: curl http://example.com/wp-admin/install.php

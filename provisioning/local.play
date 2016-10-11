@@ -3,4 +3,4 @@
   become: true
 - include: base.local.play
 - include: geauxshax.build
-- include: wordpress.bulid
+- include: wordpress.build
